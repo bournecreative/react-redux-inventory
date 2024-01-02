@@ -2,15 +2,19 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeVehicle } from "../../store/index";
 
 export const VehicleList = () => {
-  const list = useSelector((state) => state.vehicles.list);
-
   const dispatch = useDispatch();
+
+  const data = useSelector(({ vehicles: { list, searchTerm } }) => {
+    return list.filter((v) => {
+      return v.name.toLowerCase().match(searchTerm.toLowerCase());
+    });
+  });
 
   const handleVehicleDelete = (veh) => {
     dispatch(removeVehicle(veh.id));
   };
 
-  const renderedList = list.map((v) => {
+  const renderedList = data.map((v) => {
     return (
       <div key={v.id} className="panel">
         <p>
