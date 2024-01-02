@@ -22,33 +22,31 @@ export const VehicleForm = () => {
   };
 
   return (
-    <>
-      <div className="car-form panel">
-        <h4 className="subtitle is-3">Add Vehicle</h4>
-        <form onSubmit={handleSubmit}>
-          <div className="field-group">
-            <div className="field">
-              <label className="label">Vehicle Name</label>
-              <input
-                className="input is-expanded"
-                value={name}
-                onChange={handleNameChange}
-              />
-              <label className="label">Vehicle Cost</label>
-              <input
-                className="input is-expanded"
-                value={cost || ""}
-                onChange={handleCostChange}
-              />
-            </div>
-          </div>
+    <div className="car-form panel">
+      <h4 className="subtitle is-3">Add Vehicle</h4>
+      <form onSubmit={handleSubmit}>
+        <div className="field-group">
           <div className="field">
-            <button type="submit" className="button is-link">
-              Submit
-            </button>
+            <label className="label">Name</label>
+            <input
+              className="input is-expanded"
+              value={name}
+              onChange={handleNameChange}
+            />
+            <label className="label"> Cost</label>
+            <input
+              className="input is-expanded"
+              value={cost || ""}
+              onChange={handleCostChange}
+            />
           </div>
-        </form>
-      </div>
-    </>
+        </div>
+        <div className="field">
+          <button type="submit" className="button is-link">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
